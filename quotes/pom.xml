@@ -41,6 +41,5 @@
     <module>quotes-api</module>
     <module>quotes-dao</module>
     <module>quotes-service</module>
-    <module>quotes-client</module>
   </modules>
 </project>

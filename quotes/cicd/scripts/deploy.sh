@@ -51,10 +51,15 @@ if [ -z ${LIFECYCLE} ] || [ -z ${RESOURCE} ]; then
 fi
 
 if [ "${RESOURCE}" == "application" ]; then
+  unset LOCALOPTS
+  if [ "${LIFECYCLE}" == 'local' ]; then
+    LOCALOPTS="--set deployment.env.AWS_ACCESS_KEY_ID=local --set deployment.env.AWS_SECRET_ACCESS_KEY=local"
+  fi
   helm upgrade --install \
     -n "${LIFECYCLE}" \
     --set deployment.version="${APPLICATION_VERSION}" \
     --set deployment.env.LIFECYCLE="${LIFECYCLE}" \
+    ${LOCALOPTS} \
     "${APPLICATION_NAME}" "${SCRIPT_PATH}/../chart"
 else
   cicd/terraform/scripts/terraform-init.sh -n ${APPLICATION_NAME}/${RESOURCE}  -l ${LIFECYCLE} -f cicd/terraform/${RESOURCE}
