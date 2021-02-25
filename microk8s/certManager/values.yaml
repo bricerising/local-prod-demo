@@ -1,0 +1,4 @@
+installCRDs: true
+nodeselector:
+  role: admin
+renewBefore: 720h

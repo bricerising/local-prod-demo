@@ -1,0 +1,15 @@
+ingressController:
+  installCRDs: false
+
+SVC:
+  ingress:
+    enabled: false
+
+postgresql:
+  enabled: true
+clustertelemetry:
+  enabled: true
+  tls:
+    enabled: true
+    servicePort: 8006
+    containerPort: 8006

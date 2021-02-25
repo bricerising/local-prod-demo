@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        version: "{{ .Values.deployment.version }}"
+    spec:
+      securityContext: 
+        fsGroup: 65534
+      {{- if .Values.application_name }}
+      serviceAccountName: {{ .Values.application_name }}
+      {{- end }}
+      containers:
+        - name: {{ template "fullname" . }}
+          imagePullPolicy: {{ .Values.deployment.imagePullPolicy }}
+          image: {{ .Values.deployment.image }}:{{ .Values.deployment.version }}
+          resources:
+{{ toYaml .Values.deployment.resources | indent 12 }}
+          ports:
+            - containerPort: {{ .Values.deployment.port }}
+          {{- if .Values.deployment.env }}
+          envFrom:
+            - configMapRef:
+                name: {{ template "fullname" . }}
+          {{- end }}

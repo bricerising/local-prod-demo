@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+            
+  
+  
+  
+  <modelVersion>4.0.0</modelVersion>
+            
+  
+  
+  
+  <groupId>com.pago.core</groupId>
+            
+  
+  
+  
+  <artifactId>quotes</artifactId>
+            
+  
+  
+  
+  <version>1.0.0-SNAPSHOT</version>
+            
+  
+  
+  
+  <packaging>pom</packaging>
+            
+  
+  
+  
+  <name>quotes</name>
+            
+  
+  
+  
+  <properties>
+                        
+    
+    
+    
+    <maven.compiler.source>11</maven.compiler.source>
+                        
+    
+    
+    
+    <maven.compiler.target>11</maven.compiler.target>
+                        
+    
+    
+    
+    <pago-core.version>0.0.0-SNAPSHOT</pago-core.version>
+                        
+    
+    
+    
+    <quotes.version>1.0.0-SNAPSHOT</quotes.version>
+                        
+    
+    
+    
+    <ci.server_url>https://gitlab.com</ci.server_url>
+                        
+    
+    
+    
+    <ci.project_id>19496000</ci.project_id>
+                    
+  
+  
+  
+  </properties>
+            
+  
+  
+  
+  <distributionManagement>
+                        
+    
+    
+    
+    <repository>
+                                    
+      
+      
+      
+      <id>gitlab-maven</id>
+                                    
+      
+      
+      
+      <url>${ci.server_url}/api/v4/projects/${ci.project_id}/packages/maven</url>
+                                
+    
+    
+    
+    </repository>
+                        
+    
+    
+    
+    <snapshotRepository>
+                                    
+      
+      
+      
+      <id>gitlab-maven</id>
+                                    
+      
+      
+      
+      <url>${ci.server_url}/api/v4/projects/${ci.project_id}/packages/maven</url>
+                                
+    
+    
+    
+    </snapshotRepository>
+                    
+  
+  
+  
+  </distributionManagement>
+            
+  
+  
+  
+  <build>
+                        
+    
+    
+    
+    <extensions>
+                                    
+      
+      
+      
+      <extension>
+                                                
+        
+        
+        
+        <groupId>org.apache.maven.archetype</groupId>
+                                                
+        
+        
+        
+        <artifactId>archetype-packaging</artifactId>
+                                                
+        
+        
+        
+        <version>3.1.1</version>
+                                            
+      
+      
+      
+      </extension>
+                                
+    
+    
+    
+    </extensions>
+                    
+  
+  
+  
+  </build>
+        
+  
+  
+  
+  <modules>
+                  
+    
+    
+    
+    <module>quotes-api</module>
+                  
+    
+    
+    
+    <module>quotes-dao</module>
+              
+    
+    
+    <module>quotes-service</module>
+          
+    
+    <module>quotes-client</module>
+      
+  </modules>
+      
+
+
+</project>

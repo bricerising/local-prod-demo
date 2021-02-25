@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.pago.core</groupId>
+        <artifactId>quotes</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <groupId>com.pago.core</groupId>
+    <artifactId>quotes-api</artifactId>
+    <packaging>jar</packaging>
+
+    <name>quotes-api</name>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>dropwizard-core</artifactId>
+                <groupId>com.pago.core</groupId>
+                <version>${pago-core.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <artifactId>dropwizard-bom</artifactId>
+                <groupId>com.pago.core</groupId>
+                <version>${pago-core.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pago.core</groupId>
+            <artifactId>dropwizard-util</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

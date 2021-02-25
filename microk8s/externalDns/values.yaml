@@ -1,0 +1,5 @@
+provider: aws
+aws:
+  preferCNAME: true
+  evaluateTargetHealth: false
+txtPrefix: '_txt.'

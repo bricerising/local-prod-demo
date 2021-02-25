@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: apidocs-rewrite
+config:
+  replace:
+    uri: "/api-docs/$(uri_captures[1])"
+plugin: request-transformer

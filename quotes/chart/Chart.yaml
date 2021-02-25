@@ -1,0 +1,5 @@
+name: dropwizard
+version: 1.3
+description: Chart for deploying Dropwizard apps
+maintainers:
+  - name: Brice Rising

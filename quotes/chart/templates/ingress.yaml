@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: kong
+    cert-manager.io/cluster-issuer: letsencrypt
+  name: {{ template "fullname" . }}
+spec:
+  tls:
+  - hosts: 
+      - {{ template "hostname" . }}
+    secretName: {{ template "hostname" . }}
+  rules:
+  - host: {{ template "hostname" . }}
+    http:
+      paths:
+        - backend:
+            serviceName: {{ template "fullname" . }}
+            servicePort: {{ .Values.deployment.port }}
