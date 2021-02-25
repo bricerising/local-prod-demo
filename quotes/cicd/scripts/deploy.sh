@@ -51,9 +51,9 @@ if [ -z ${LIFECYCLE} ] || [ -z ${RESOURCE} ]; then
 fi
 
 if [ "${RESOURCE}" == "application" ]; then
-  unset LOCALOPTS
+  unset HELM_OPTS
   if [ "${LIFECYCLE}" == 'local' ]; then
-    LOCALOPTS="--set deployment.env.AWS_ACCESS_KEY_ID=local --set deployment.env.AWS_SECRET_ACCESS_KEY=local"
+    HELM_OPTS="--set deployment.env.AWS_ACCESS_KEY_ID=local --set deployment.env.AWS_SECRET_ACCESS_KEY=local"
     mkdir -p tmp
     export KUBECONFIG=tmp/microk8s-kubeconfig-$(date +%s)
     CONFIG=$(microk8s config)
@@ -61,6 +61,8 @@ if [ "${RESOURCE}" == "application" ]; then
     chown 600 ${KUBECONFIG}
   else
     aws eks update-kubeconfig --name quotes-cluster --region us-east-1
+    REPOSITORY_URL=$(aws ecr describe-repositories --region ${AWS_REGION} --repository-name ${APPLICATION_NAME}/${LIFECYCLE} | jq -r '.repositories[0].repositoryUri')
+    HELM_OPTS="--set deployment.image=${REPOSITORY_URL}"
   fi
 
   kubectl create serviceaccount quotes -n "${LIFECYCLE}" 2> /dev/null
@@ -68,7 +70,7 @@ if [ "${RESOURCE}" == "application" ]; then
     -n "${LIFECYCLE}" \
     --set deployment.version="${APPLICATION_VERSION}" \
     --set deployment.env.LIFECYCLE="${LIFECYCLE}" \
-    ${LOCALOPTS} \
+    ${HELM_OPTS} \
     "${APPLICATION_NAME}" "${SCRIPT_PATH}/../chart"
 else
   cicd/terraform/scripts/terraform-init.sh -n ${APPLICATION_NAME}/${RESOURCE}  -l ${LIFECYCLE} -f cicd/terraform/${RESOURCE}

@@ -13,4 +13,7 @@ fi
 "${SCRIPTPATH}"/certManager/setup.sh "${LIFECYCLE}"
 "${SCRIPTPATH}"/externalDns/setup.sh
 "${SCRIPTPATH}"/kong/setup.sh
-"${SCRIPTPATH}"/dynamodb/setup.sh
+
+if [ 'local' == "${LIFECYCLE}" ]; then
+    "${SCRIPTPATH}"/dynamodb/setup.sh
+fi

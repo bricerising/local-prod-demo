@@ -67,6 +67,8 @@ cd ${TERRAFORM_FOLDER}
 
 # Clear any existing terraform config files
 rm -rf .terraform
+rm -rf *tfstate*
+rm -rf .*tfstate*
 
 terraform init \
     -backend-config="bucket=${S3_BUCKET_NAME}" \
