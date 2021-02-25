@@ -24,7 +24,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  postgresql-password: "bU9scE9kclRnNg=="
+  postgresql-password: "Z04zVDV4eHRJRA=="
 ---
 # Source: kong/templates/wait-for-postgres-script.yaml
 apiVersion: v1

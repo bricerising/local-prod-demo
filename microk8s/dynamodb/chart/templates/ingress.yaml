@@ -8,12 +8,25 @@ metadata:
 spec:
   tls:
   - hosts: 
-      - dyanmodb.local.bricerising.com
-    secretName: dyanmodb.local.bricerising.com
+      - dynamodb.local.bricerising.com
+    secretName: dynamodb.local.bricerising.com
   rules:
-  - host: dyanmodb.local.bricerising.com
+  - host: dynamodb.local.bricerising.com
     http:
       paths:
         - backend:
             serviceName: {{ template "fullname" . }}
             servicePort: 8000
+
+---
+kind: KongIngress
+apiVersion: configuration.konghq.com/v1
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+  name: timeout-kong-ingress
+proxy:
+  protocol: http
+  connect_timeout: 360000
+  read_timeout: 360000
+  write_timeout: 360000

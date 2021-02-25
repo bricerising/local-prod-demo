@@ -4,6 +4,6 @@ logging:
     com.pago.core: DEBUG
 
 dynamodb:
-  endpoint: http://dynamodb:8000
+  endpoint: https://dynamodb.local.bricerising.com
   table: quotes-local
   region: us-east-2
