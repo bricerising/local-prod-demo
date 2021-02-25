@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: kong
+    cert-manager.io/cluster-issuer: letsencrypt
+  name: {{ template "fullname" . }}
+spec:
+  tls:
+  - hosts: 
+      - dyanmodb.local.bricerising.com
+    secretName: dyanmodb.local.bricerising.com
+  rules:
+  - host: dyanmodb.local.bricerising.com
+    http:
+      paths:
+        - backend:
+            serviceName: {{ template "fullname" . }}
+            servicePort: 8000

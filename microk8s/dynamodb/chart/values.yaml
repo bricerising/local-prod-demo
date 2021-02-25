@@ -1,0 +1,16 @@
+deployment:
+  imagePullPolicy: Always
+  image: localhost:32000/quotes
+  version: latest
+  serviceAccount:
+  env:
+  port: 8080
+  resources:
+    limits:
+      memory: 256M
+      cpu: .3
+service:
+  type: ClusterIP
+ingress:
+  domain: bricerising.com
+application_name: quotes

@@ -8,3 +8,4 @@ microk8s enable dashboard dns registry metrics-server helm3 fluentd metallb
 "${SCRIPTPATH}"/certManager/setup.sh
 "${SCRIPTPATH}"/externalDns/setup.sh
 "${SCRIPTPATH}"/kong/setup.sh
+"${SCRIPTPATH}"/dynamodb/setup.sh

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+    spec:
+      securityContext: 
+        fsGroup: 65534
+      containers:
+        - name: {{ template "fullname" . }}
+          image: amazon/dynamodb-local:latest
+          ports:
+            - containerPort: 8000
