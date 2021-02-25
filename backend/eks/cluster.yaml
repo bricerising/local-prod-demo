@@ -1,0 +1,60 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: quotes-cluster
+  region: us-east-1
+
+vpc:
+  subnets:
+    public:
+      us-east-1a: { id: subnet-16d3be5c }
+      us-east-1b: { id: subnet-2fd40d73 }
+    private:
+      us-east-1c: { id: subnet-cfd70fa8 }
+      us-east-1d: { id: subnet-9fe73cb1 }
+      us-east-1f: { id: subnet-c522b8ca }
+iam:
+  withOIDC: true
+  serviceAccounts:
+  - metadata:
+      name: quotes
+      namespace: dev
+      labels: {aws-usage: "application"}
+    attachPolicyARNs:
+    - "arn:aws:iam::629743395478:policy/quotes-dev"
+managedNodeGroups:
+  - name: admin
+    instanceType: m5.large
+    desiredCapacity: 1
+    volumeSize: 80
+    ssh:
+      publicKeyName: eks-us-east-1
+    labels: { role: admin }
+    tags:
+      role: admin
+    iam:
+      withAddonPolicies:
+        externalDNS: true
+        certManager: true
+        ebs: true
+        cloudWatch: true
+  - name: applications
+    instanceType: m5.large
+    desiredCapacity: 1
+    volumeSize: 80
+    ssh:
+      publicKeyName: eks-us-east-1
+    labels: { role: applications }
+    tags:
+      role: applications
+    iam:
+      withAddonPolicies:
+        ebs: true
+        cloudWatch: true
+
+cloudWatch:
+  clusterLogging:
+    enableTypes:
+      - "audit"
+      - "authenticator"

@@ -16,16 +16,16 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <artifactId>dropwizard-core</artifactId>
-                <groupId>com.pago.core</groupId>
-                <version>${pago-core.version}</version>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-dependencies</artifactId>
+                <version>2.0.10</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <artifactId>dropwizard-bom</artifactId>
-                <groupId>com.pago.core</groupId>
-                <version>${pago-core.version}</version>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>1.11.906</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -34,17 +34,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.pago.core</groupId>
-            <artifactId>dropwizard-dynamodb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.pago.core</groupId>
-            <artifactId>dropwizard-util</artifactId>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+            <version>1.18.12</version>
         </dependency>
         <dependency>
             <groupId>io.dropwizard</groupId>
@@ -53,14 +50,17 @@
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
+            <version>4.2.3</version>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.1.4</version>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+            <version>2.1.4</version>
         </dependency>
     </dependencies>
 

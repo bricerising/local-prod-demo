@@ -1,8 +1,8 @@
 package com.pago.core.quotes.config;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.pago.core.config.DozerConfiguration;
-import com.pago.core.dynamodb.config.DynamoDBConfiguration;
+import com.pago.core.quotes.api.util.DozerConfiguration;
+import com.pago.core.quotes.dao.config.DynamoDBConfiguration;
 import io.dropwizard.Configuration;
 
 import javax.validation.Valid;

@@ -54,7 +54,16 @@ if [ "${RESOURCE}" == "application" ]; then
   unset LOCALOPTS
   if [ "${LIFECYCLE}" == 'local' ]; then
     LOCALOPTS="--set deployment.env.AWS_ACCESS_KEY_ID=local --set deployment.env.AWS_SECRET_ACCESS_KEY=local"
+    mkdir -p tmp
+    export KUBECONFIG=tmp/microk8s-kubeconfig-$(date +%s)
+    CONFIG=$(microk8s config)
+    echo "${CONFIG}" > ${KUBECONFIG}
+    chown 600 ${KUBECONFIG}
+  else
+    aws eks update-kubeconfig --name quotes-cluster --region us-east-1
   fi
+
+  kubectl create serviceaccount quotes -n "${LIFECYCLE}" 2> /dev/null
   helm upgrade --install \
     -n "${LIFECYCLE}" \
     --set deployment.version="${APPLICATION_VERSION}" \

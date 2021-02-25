@@ -26,21 +26,14 @@
             <dependency>
                 <groupId>io.dropwizard</groupId>
                 <artifactId>dropwizard-dependencies</artifactId>
-                <version>${dropwizard.version}</version>
+                <version>2.0.10</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <artifactId>dropwizard-core</artifactId>
-                <groupId>com.pago.core</groupId>
-                <version>${pago-core.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <artifactId>dropwizard-bom</artifactId>
-                <groupId>com.pago.core</groupId>
-                <version>${pago-core.version}</version>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>1.11.906</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -60,21 +53,11 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
-        <!-- pago dropwizard core deps -->
-        <dependency>
-            <groupId>com.pago.core</groupId>
-            <artifactId>dropwizard-util</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+            <version>1.18.12</version>
         </dependency>
         <dependency>
             <groupId>io.dropwizard</groupId>
@@ -83,10 +66,12 @@
         <dependency>
             <groupId>ru.vyarus</groupId>
             <artifactId>dropwizard-guicey</artifactId>
+            <version>5.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
+            <version>4.2.3</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -95,6 +80,7 @@
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.1.4</version>
         </dependency>
     </dependencies>
 

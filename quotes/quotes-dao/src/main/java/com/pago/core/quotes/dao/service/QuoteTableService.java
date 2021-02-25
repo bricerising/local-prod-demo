@@ -2,8 +2,6 @@ package com.pago.core.quotes.dao.service;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.pago.core.dto.Page;
-import com.pago.core.dynamodb.service.DynamoDBService;
 import com.pago.core.quotes.dao.models.QuoteItem;
 
 import javax.inject.Inject;

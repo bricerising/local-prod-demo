@@ -1,8 +1,7 @@
 package com.pago.core.quotes.dao.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import com.pago.core.dynamodb.util.DynamoDBLocalDateTimeConverter;
-import com.pago.core.dynamodb.util.DynamoDBLocalDateTimeGenerator;
+import com.pago.core.quotes.dao.util.DynamoDBLocalDateTimeGenerator;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;

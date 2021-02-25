@@ -1,6 +1,6 @@
 package com.pago.core.quotes;
 
-import com.pago.core.config.DozerModule;
+import com.pago.core.quotes.api.util.DozerModule;
 import com.pago.core.quotes.config.*;
 import com.pago.core.quotes.module.HealthcheckModule;
 import com.pago.core.quotes.module.DynamoDBModule;
@@ -12,7 +12,6 @@ import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 import io.swagger.v3.oas.integration.SwaggerConfiguration;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import ru.vyarus.dropwizard.guice.GuiceBundle;
 
 import java.security.Security;
@@ -22,8 +21,6 @@ import java.util.stream.Stream;
 public class SeedApplication extends Application<SeedApplicationConfiguration> {
 
     public static void main(final String[] args) throws Exception {
-        Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
-        Security.addProvider(new BouncyCastleProvider());
         new SeedApplication().run(args);
     }
 

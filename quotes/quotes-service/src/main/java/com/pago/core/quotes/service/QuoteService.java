@@ -1,8 +1,8 @@
 package com.pago.core.quotes.service;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedList;
-import com.pago.core.dto.Page;
-import com.pago.core.service.DozerMapperService;
+import com.pago.core.quotes.api.dto.Page;
+import com.pago.core.quotes.api.util.DozerMapperService;
 import com.pago.core.quotes.dao.models.QuoteItem;
 import com.pago.core.quotes.dao.service.QuoteTableService;
 

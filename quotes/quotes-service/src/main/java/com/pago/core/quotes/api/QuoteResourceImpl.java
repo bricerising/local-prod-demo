@@ -1,9 +1,9 @@
 package com.pago.core.quotes.api;
 
-import com.pago.core.dto.Page;
-import com.pago.core.service.DozerMapperService;
+import com.pago.core.quotes.api.dto.Page;
 import com.pago.core.quotes.api.dto.QuoteRequest;
 import com.pago.core.quotes.api.dto.QuoteResponse;
+import com.pago.core.quotes.api.util.DozerMapperService;
 import com.pago.core.quotes.dao.models.QuoteItem;
 import com.pago.core.quotes.service.QuoteService;
 

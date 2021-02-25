@@ -1,7 +1,7 @@
 package com.pago.core.quotes.api;
 
 import com.codahale.metrics.annotation.Timed;
-import com.pago.core.dto.Page;
+import com.pago.core.quotes.api.dto.Page;
 import com.pago.core.quotes.api.dto.QuoteRequest;
 import com.pago.core.quotes.api.dto.QuoteResponse;
 

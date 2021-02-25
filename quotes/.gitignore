@@ -14,3 +14,5 @@ dependency-reduced-pom.xml
 
 # Swagger
 quotes-service/src/main/resources/swagger-ui/
+
+tmp
