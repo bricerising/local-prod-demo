@@ -12,7 +12,7 @@ LIFECYCLE="${1-local}"
 
 #"${SCRIPTPATH}"/certManager/setup.sh "${LIFECYCLE}"
 "${SCRIPTPATH}"/externalDns/setup.sh
-#"${SCRIPTPATH}"/kong/setup.sh
+"${SCRIPTPATH}"/kong/setup.sh
 
 if [ 'local' == "${LIFECYCLE}" ]; then
     "${SCRIPTPATH}"/dynamodb/setup.sh
