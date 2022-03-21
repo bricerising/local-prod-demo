@@ -73,15 +73,15 @@ if [ "${RESOURCE}" == "application" ]; then
     ${HELM_OPTS} \
     "${APPLICATION_NAME}" "${SCRIPT_PATH}/../chart"
 else
-  cicd/terraform/scripts/terraform-init.sh -n ${APPLICATION_NAME}/${RESOURCE}  -l ${LIFECYCLE} -f cicd/terraform/${RESOURCE}
-
-  cd cicd/terraform/${RESOURCE}
 
   if [ "${LIFECYCLE}" == 'local' ]; then
     export AWS_ACCESS_KEY_ID=local
     export AWS_SECRET_ACCESS_KEY=local
     export AWS_DEFAULT_REGION=us-east-1
   fi
+
+  cicd/terraform/scripts/terraform-init.sh -n ${APPLICATION_NAME}/${RESOURCE}  -l ${LIFECYCLE} -f cicd/terraform/${RESOURCE}
+  cd cicd/terraform/${RESOURCE}
 
   if grep application_version vars.tf; then
     terraform apply \
