@@ -55,10 +55,10 @@ if [ "${RESOURCE}" == "application" ]; then
   if [ "${LIFECYCLE}" == 'local' ]; then
     HELM_OPTS="--set deployment.env.AWS_ACCESS_KEY_ID=local --set deployment.env.AWS_SECRET_ACCESS_KEY=local"
     mkdir -p tmp
-    export KUBECONFIG=tmp/microk8s-kubeconfig-$(date +%s)
-    CONFIG=$(microk8s config)
-    echo "${CONFIG}" > ${KUBECONFIG}
-    chown 600 ${KUBECONFIG}
+    #export KUBECONFIG=tmp/microk8s-kubeconfig-$(date +%s)
+    #CONFIG=$(microk8s config)
+    #echo "${CONFIG}" > ${KUBECONFIG}
+    #chown 600 ${KUBECONFIG}
   else
     aws eks update-kubeconfig --name quotes-cluster --region us-east-1
     REPOSITORY_URL=$(aws ecr describe-repositories --region ${AWS_REGION} --repository-name ${APPLICATION_NAME}/${LIFECYCLE} | jq -r '.repositories[0].repositoryUri')

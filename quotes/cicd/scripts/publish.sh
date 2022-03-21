@@ -36,7 +36,7 @@ if [ -z ${VERSION} ] || [ -z ${LIFECYCLE} ]; then
     usage
 fi
 
-REPOSITORY_URL=localhost:32000/${APPLICATION_NAME}
+REPOSITORY_URL=localhost:5000/${APPLICATION_NAME}
 
 if [ 'local' != "${LIFECYCLE}" ]; then
     aws ecr create-repository --region ${AWS_REGION} --repository-name ${APPLICATION_NAME}/${LIFECYCLE} 2> /dev/null

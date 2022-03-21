@@ -1,6 +1,6 @@
 deployment:
   imagePullPolicy: Always
-  image: localhost:32000/quotes
+  image: localhost:5000/quotes
   version: latest
   serviceAccount:
   env:
